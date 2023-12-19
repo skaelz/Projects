@@ -2,8 +2,6 @@
 
 Welcome to this repository showcasing various data projects demonstrating proficiency in SQL, Excel, and Tableau.
 
-Hi Recruiters! Welcome to my GITHUB projects. 
-
 ## Project Overviews
 
 ### 1. App Developer Showcase - SQL Focus
@@ -16,8 +14,7 @@ Hi Recruiters! Welcome to my GITHUB projects.
 
 - **Key Concepts:** Data Cleaning, SQL Analysis, Tableau Visualization, Reporting.
 - **Objective:** Transform unclean data into a clean dataset using SQL, perform comprehensive SQL analysis to derive actionable insights for Bandicoot Coffee. Create visualizations and reporting using Tableau.
-- **Components:** Involves SQL cleaning, analysis covering multiple SQL concepts (JOINS, GROUP BY, etc.), and integration of SQL data with Tableau for impactful visualizations.
-
+- **Components:** Involves SQL cleaning, analysis covering multiple SQL concepts, and visualization with Tableau for insghts. 
 ### 3. Bike Sales Analysis - Excel Focus
 
 - **Key Concepts:** VLOOKUP, PIVOT tables, Nested Queries (Excel Functions).
@@ -35,6 +32,7 @@ Hi Recruiters! Welcome to my GITHUB projects.
 - `/Bandicoot_Coffee_SQL_Tableau`: SQL files for data cleaning and analysis, along with Tableau visualization files.
 - `/Bike_Sales_Analysis_Excel`: Excel files demonstrating analysis and reports for bike sales.
 - `/COVID19_Tableau_Visualization`: Tableau files for visualizing COVID-19 data.
+- `/Dump_File`: Contains all revelant CSV data for the multiple projects.
 
 Each project folder contains detailed documentation explaining the analysis, methodologies, and insights derived.
 
