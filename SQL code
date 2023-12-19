@@ -1,6 +1,7 @@
 -- check number of unique apps in both tables--
 select count(distinct id) as uniqueappids
 from applestore_description_combined
+
 select count(distinct id) as uniqueappids
 from applestore
 
