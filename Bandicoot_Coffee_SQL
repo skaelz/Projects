@@ -1,0 +1,305 @@
+## Summary: Espresso Machine Sales Data Analysis
+
+The espresso machine sales data was analyzed to gain actionable insights into sales performance, customer behavior, profitability, and areas requiring attention within the business. Model B outperformed the other models, time-based promotions were 
+critical towards business revenue, and audits are in order as data was irregular.
+
+### Recommendations
+
+The following recommendations are made based on the findings:
+- Focus on growing Model B as a profit leader in all markets.
+- Implement a promotion analysis and marketing plan to drive further revenue.
+- Conduct a deeper analysis with more specific customer data to better understand demographics and buying behaviors.
+- Conduct a data-collection audit to ensure accurate information. A quality assurance audit after could be necessary as 300+ of 1000 machines were returned defective. 
+
+### Data Cleaning & Preparation
+
+The data was cleaned and prepared for analysis by:
+- Changing missing string information to “null”.
+- Ensuring uniform lowercase formatting.
+- Standardizing date formats.
+- Dropping null values primarily related to US-specific customers to focus on international customers as a whole. 
+
+### Sales Performance
+
+The sales performance analysis revealed that:
+- Model B generated the highest revenue, followed by Models A and C.
+- Model B, Model C, and then Model A recorded the highest to lowest sales volumes.
+
+### Profitability Analysis
+
+The profitability analysis showed that:
+- Model B exhibited the highest profit margin, followed by Model C and Model A.
+- No significant correlation was found between pricing and sales volume across different models.
+
+# Customer Insights
+
+The analysis of customer data revealed the following insights:
+
+- Models A, B, and C demonstrated varying success across different countries, indicating the necessity for more detailed and specific customer information.
+- Promotions labeled as "sale10," "welcome15," and "summer20" collectively generated over $1 million in revenue. However, the revenue order indicated that "sale10" was the most impactful, followed by "welcome15," and then "summer20." 
+  This highlights that customers were more time-sensitive to these promotions than price-sensitive to the discount offered.
+- All machines were flagged as returned, with over 300 being labeled as defective. Additionally, various customer data fields such as shipping information, warranty details, etc., showed irregularities, making them unusable. 
+  This situation requires improvements in manufacturing processes, data collection procedures, or both. Quality assurance and audits specifically focusing on data collection are imperative.
+  
+# Conclusion
+
+The analysis underscores critical areas requiring attention within the business:
+
+- **Model Focus**: Model B emerged as the superior choice based on sales and customer perspectives. Thus, redirecting marketing efforts towards promoting Model B is crucial as it garners the most traction in the markets.
+- **Promotion Impact**: Promotions accounted for a significant portion, approximately 40%, of the earned revenue. Further analysis and exploration into various types of promotions are necessary to drive revenue growth.
+- **Customer Demographics**: More comprehensive and detailed information regarding customer demographics is imperative for conducting intelligent demographic analysis.
+- **Data Accuracy Investigation**: A comprehensive investigation into the accuracy of data collection methods is essential. Numerous pieces of information require scrutiny and potential enhancement.
+
+SQL 
+
+-- Set null Values in the table
+
+update espresso
+set 
+    espresso_machine_id = case when espresso_machine_id = '' then null else espresso_machine_id end,
+    model = case when model = '' then null else model end,
+    brand = case when brand = '' then null else brand end,
+    price = case when price = '' then null else price end,
+    cost_of_goods = case when cost_of_goods = '' then null else cost_of_goods end,
+    sale_location = case when sale_location = '' then null else sale_location end,
+    sale_date = case when sale_date = '' then null else sale_date end,
+    customer_email = case when customer_email = '' then null else customer_email end,
+    customer_phone = case when customer_phone = '' then null else customer_phone end,
+    customer_address = case when customer_address = '' then null else customer_address end,
+    customer_city = case when customer_city = '' then null else customer_city end,
+    customer_state = case when customer_state = '' then null else customer_state end,
+    customer_country = case when customer_country = '' then null else customer_country end,
+    customer_postal_code = case when customer_postal_code = '' then null else customer_postal_code end,
+    payment_method = case when payment_method = '' then null else payment_method end,
+    payment_date = case when payment_date = '' then null else payment_date end,
+    shipping_method = case when shipping_method = '' then null else shipping_method end,
+    shipping_address = case when shipping_address = '' then null else shipping_address end,
+    shipping_city = case when shipping_city = '' then null else shipping_city end,
+    shipping_state = case when shipping_state = '' then null else shipping_state end,
+    warranty_start_date = case when warranty_start_date = '' then null else warranty_start_date end,
+    warranty_end_date = case when warranty_end_date = '' then null else warranty_end_date end,
+    sales_representative = case when sales_representative = '' then null else sales_representative end,
+    sales_channel = case when sales_channel = '' then null else sales_channel end,
+    promotion_code = case when promotion_code = '' then null else promotion_code end,
+    return_date = case when return_date = '' then null else return_date end,
+    return_reason = case when return_reason = '' then null else return_reason end,
+    refund_amount = case when refund_amount = '' then null else refund_amount end,
+    refund_method = case when refund_method = '' then null else refund_method end;
+
+-- uniform case for simplicity 
+
+update espresso
+set 
+  espresso_machine_id = lower(espresso_machine_id),
+  model = lower(model),
+  brand = lower(brand),
+  price = lower(price),
+  cost_of_goods = lower(cost_of_goods),
+  sale_location = lower(sale_location),
+  sale_date = lower(sale_date),
+  customer_email = lower(customer_email),
+  customer_phone = lower(customer_phone),
+  customer_address = lower(customer_address),
+  customer_city = lower(customer_city),
+  customer_state = lower(customer_state),
+  customer_country = lower(customer_country),
+  customer_postal_code = lower(customer_postal_code),
+  payment_method = lower(payment_method),
+  payment_date = lower(payment_date),
+  shipping_method = lower(shipping_method),
+  shipping_address = lower(shipping_address),
+  shipping_city = lower(shipping_city),
+  shipping_state = lower(shipping_state),
+  warranty_start_date = lower(warranty_start_date),
+  warranty_end_date = lower(warranty_end_date),
+  sales_representative = lower(sales_representative),
+  sales_channel = lower(sales_channel),
+  promotion_code = lower(promotion_code),
+  return_date = lower(return_date),
+  return_reason = lower(return_reason),
+  refund_amount = lower(refund_amount),
+  refund_method = lower(refund_method);
+
+-- uniform date for simplicity
+select sale_date, payment_date, warranty_start_date, warranty_end_date, return_date
+from espresso 
+-- understand where null values are at
+
+select 
+    (select count(*) from espresso where espresso_machine_id is null) as espresso_machine_id_null,
+    (select count(*) from espresso where model is null) as model_null,
+    (select count(*) from espresso where brand is null) as brand_null,
+    (select count(*) from espresso where price is null) as price_null,
+    (select count(*) from espresso where cost_of_goods is null) as cost_of_goods_null,
+    (select count(*) from espresso where sale_location is null) as sale_location_null,
+    (select count(*) from espresso where sale_date is null) as sale_date_null,
+    (select count(*) from espresso where customer_email is null) as customer_email_null,
+    (select count(*) from espresso where customer_phone is null) as customer_phone_null,
+    (select count(*) from espresso where customer_address is null) as customer_address_null,
+    (select count(*) from espresso where customer_city is null) as customer_city_null,
+    (select count(*) from espresso where customer_state is null) as customer_state_null,
+    (select count(*) from espresso where customer_country is null) as customer_country_null,
+    (select count(*) from espresso where customer_postal_code is null) as customer_postal_code_null,
+    (select count(*) from espresso where payment_method is null) as payment_method_null,
+    (select count(*) from espresso where payment_date is null) as payment_date_null,
+    (select count(*) from espresso where shipping_method is null) as shipping_method_null,
+    (select count(*) from espresso where shipping_address is null) as shipping_address_null,
+    (select count(*) from espresso where shipping_city is null) as shipping_city_null,
+    (select count(*) from espresso where shipping_state is null) as shipping_state_null,
+    (select count(*) from espresso where warranty_start_date is null) as warranty_start_date_null,
+    (select count(*) from espresso where warranty_end_date is null) as warranty_end_date_null,
+    (select count(*) from espresso where sales_representative is null) as sales_representative_null,
+    (select count(*) from espresso where sales_channel is null) as sales_channel_null,
+    (select count(*) from espresso where promotion_code is null) as promotion_code_null,
+    (select count(*) from espresso where return_date is null) as return_date_null,
+    (select count(*) from espresso where return_reason is null) as return_reason_null,
+    (select count(*) from espresso where refund_amount is null) as refund_amount_null,
+    (select count(*) from espresso where refund_method is null) as refund_method_null;
+    
+-- Review where nulls are in the table and why they might be null 
+
+select * from espresso -- view column names
+
+-- Run the count of null again, see which columns have null values. Recognize that the null values are showing up for US and NonUs customers. Understand that the data given doesn't have all postal code, states, or other more detailed information. 
+We would need to increase our data collection efforts, as insights cannot be found with the current lack of information from these columns. Dropping them completely allow us to analyze more in depth. 
+If the table is a master database, best practice is to create a new table and analyze from there. 
+
+alter table espresso
+drop column customer_postal_code, customer_state, shipping_state
+
+--No nulls, the right columns dropped, uniform case, ready to analyze!
+
+-- -- Sales Performance Analysis:
+
+--What is the total revenue generated from each model? 
+
+select distinct model, 
+	sum(price) as total_revenue
+from espresso
+group by model
+order by total_revenue
+
+--Model A: 854526.12, Model B: 855539.04, Model C: 829410.18, most revenue generated was model b
+
+--Which espresso machine model has the highest and lowest sales volume?
+
+select model, 
+  count(espresso_machine_id) as sales_volume
+from espresso
+group by model
+order by sales_volume;
+
+--In model order, B C A
+
+--Profitability Analysis:
+
+--What is the profit margin for each model considering the cost of goods sold?
+
+select distinct model, 
+	avg(price), 
+  avg(cost_of_goods), 
+  (avg(price) - avg(cost_of_goods)) as profit,
+  ((avg(price) - avg(cost_of_goods)) / avg(cost_of_goods)) as profit_margin
+from espresso
+group by model 
+order by profit asc;
+
+-- Profit margin for each model, Model A: 942.48, Model B: 1121.88, Model C:1039.42. 
+
+--Is there a correlation between pricing and sales volume for different models?
+
+select model, 
+	count(espresso_machine_id) as sales_volume, 
+	sum(price) as total_price, 
+	sum(price) / count(espresso_machine_id) as price_per_unit,
+  corr(price, count(espresso_machine_id) AS correlation_coefficient
+from espresso
+group by model
+order by model;
+         
+-- The correlation between pricing and sales volume is insignificant  
+
+--Customer Insights:
+
+--Can you profile the typical customer (demographics) for each espresso machine model/brand?
+
+select customer_country, sum(price) as total_revenue,
+  count(case when model = 'model a' then 1 end) as modela_count,
+  count(case when model = 'model b' then 1 end) as modelb_count,
+  count(case when model = 'model c' then 1 end) as modelc_count
+from espresso
+group by customer_country 
+
+-- We can understand what countries are doing well, and which models are doing well in those countries. 
+-- We need more specific customer information (sex, ethnicity, age, etc.) to understand more. 
+
+--Analyze customer buying behavior - do certain customers buy multiple machines? 
+select espresso_machine_id, 
+	count(*) as occurrences
+from espresso 
+group by customer_name
+having count(*) < 1
+-- As no customer has more than 1 purchase, everyone in this 1000 customer view only bought one, more data is needed to understand larger scale implications. 
+
+--Are there particular regions or locations where specific espresso machine models sell better?
+select
+    customer_country,
+    sum(price) as total_revenue,
+    count(case when model = 'model a' then 1 end) as modela_count,
+    count(case when model = 'model b' then 1 end) as modelb_count,
+    count(case when model = 'model c' then 1 end) as modelc_count,
+    case	
+        when count(case when model = 'model a' then 1 end) between 0 and 5 then 'low'
+        when count(case when model = 'model a' then 1 end) between 5 and 10 then 'mid' 
+        else 'high'
+        end as modela_bucket,
+    case
+        when count(case when model = 'model b' then 1 end) between 0 and 5 then 'low'
+        when count(case when model = 'model b' then 1 end) between 5 and 10 then 'mid' 
+        else 'high'
+        end as modelb_bucket,
+    case
+        when count(case when model = 'model c' then 1 end) between 0 and 5 then 'low'
+        when count(case when model = 'model c' then 1 end) between 5 and 10 then 'mid' 
+        else 'high'
+        end as modelc_bucket
+from espresso
+group by customer_country;
+
+-- Model A does well (high) in: Brazil, China, France, Indonesia, Philippines, Poland, Russia
+-- Model B does well (high) in: China, Philippines, Indonesia, Poland, Portugal, Russia, Sweden
+-- Model C does well (high) in: China, Indonesia, Russia
+
+--Promotion and Returns Analysis:
+
+--Assess the impact of promotions or discounts on sales figures.
+select distinct promotion_code, 
+	avg(price), sum(price) - sum (cost_of_goods) as revenue
+from espresso
+group by promotion_code
+order By revenue desc
+
+-- While not having a huge impact on average price, the promotions in order of revenue generated were sale10, welcome15, then summer20. The amount of the promotion didn't seem to matter, just the timing.     
+
+--What are the most common reasons for returns, and how do they affect overall revenue?
+
+select model, 
+	sum(price)-sum(cost_of_goods) as revenue,
+  return_reason, count(return_reason)
+from espresso
+group by return_reason
+order by model asc
+
+-- Most common was not as described, then defective, then changed mind. We currently have 338 defective machines, 1/3 of the machines sold, and need to desperately change our manufacturing process. 
+
+--Warranty and Support:
+
+--Analyze warranty usage - how many customers utilized warranties for each machine model?
+select distinct model, 
+	count(payment_date), 
+    count(return_reason)
+from espresso
+group by model
+-- Looking at payment date and return reason, it seem that our product needs drastic changes.
+-- Every single machine was returned that was purchased, netting our profit to zero. We either need better machines, or a stricter return policy. 
+-- The data collection could be off, as well. More investigation needed.  
