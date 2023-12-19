@@ -32,7 +32,9 @@ What is the most competitive genre for apps?
 Games and Entertainment are highly competitive.
 
 Conclusion:
-After thorough analysis, it appears that a paid Finance or Book app supporting 10-30 languages, maintaining an average rating of 3.5 or higher, and offering a detailed product description of 1000 characters+ could thrive in the current market. However, it is important to avoid either a color therapy book or a Credit Karma clone to stand out. To gain deeper insights, a closer examination of customer preferences, app subcategories, and preferred languages is necessary for a more comprehensive strategy.
+After thorough analysis, it appears that a paid Finance or Book app supporting 10-30 languages, maintaining an average rating of 3.5 or higher, and offering a detailed product description of 1000 characters+ 
+could thrive in the current market. However, it is important to avoid either a color therapy book or a Credit Karma clone to stand out. To gain deeper insights, a closer examination of customer preferences, 
+app subcategories, and preferred languages is necessary for a more comprehensive strategy.
 
 -- check number of unique apps in both tables--
 select count(distinct id) as uniqueappids
