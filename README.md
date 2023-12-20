@@ -29,7 +29,7 @@ Welcome to this repository showcasing various data projects demonstrating profic
 ## Folder Structure
 
 - `/App_Developer_Showcase`: Contains SQL scripts showcasing complex queries.
-- `/Bandicoot_Coffee_SQL_Tableau`: SQL files for data cleaning and analysis, along with Tableau visualization files.
+- `/Bandicoot_Coffee`: SQL files for data cleaning and analysis, along with Tableau visualization files.
 - `/Bike_Sales_Analysis_Excel`: Excel files demonstrating analysis and reports for bike sales.
 - `/COVID19_Tableau_Visualization`: Tableau files for visualizing COVID-19 data.
 - `/Dump_File`: Contains all revelant CSV data for the multiple projects.
