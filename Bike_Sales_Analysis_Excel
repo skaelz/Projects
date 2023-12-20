@@ -1,0 +1,29 @@
+To see Excel go here: https://1drv.ms/x/c/89a24e1bff19fa9d/EZ36Gf8bTqIggImTAAAAAAABkPXN5d25pRgbic-JXpOKtA?e=igUSDn
+
+Excel Project
+
+Question: What is my target market with my customers?
+Answer: male, 31-55 year old, low-commute, upperclass customers. 
+
+Data Setup and Cleaning
+Created a working sheet with the raw data
+Cleansed the data by removing duplicates and standardizing abbreviations for clarity.
+
+Data Formatting and Segmentation
+Formatted columns to ensure consistency and readability.
+Ensured that currency values were formatted correctly.
+Created "age brackets" to make the data easier to visualize and analyze.
+Prepared the data for visualization by segmenting it into age groups using nested IF statements.
+
+Pivot Tables and Visualizations
+Used pivot tables to analyze average income concerning bike purchases, broken down by gender.
+Visualized the data through charts, highlighting gender-wise income disparities and purchase patterns by age group.
+
+Dashboard Creation and Enhancement
+Crafted a comprehensive and visually appealing dashboard with aligned visualizations.
+Not Shown- I would also include pivot table slicers to organize and filter the data, but I am limited with Microsoft Office 365 Online. 
+
+Quick Analysis
+From my understanding, the bike shop’s target market should be focus on Middle Aged (31-55) customers with a slight focus on a male demographic that work within 3 miles of their homes. 
+For example, if there was a housing complex within 3 miles next to a hospital or business park there could be reason to market there. More analysis and data is needed to understand sub-demographics, types of bikes, etc. 
+to come to a more accurate solution before spending ad dollars. 
