@@ -32,7 +32,7 @@ Welcome to this repository showcasing various data projects demonstrating profic
 - `/Bandicoot_Coffee`: SQL files for data cleaning and analysis, along with Tableau visualization files.
 - `/Bike_Sales_Analysis_Excel`: Excel files demonstrating analysis and reports for bike sales.
 - `/COVID19_Tableau_Visualization`: Tableau files for visualizing COVID-19 data.
-- `/Dump_File`: Contains all revelant CSV data for the multiple projects.
+- `/Dump_File.zip`: Contains all revelant CSV data for the multiple projects.
 
 Each project folder contains detailed documentation explaining the analysis, methodologies, and insights derived.
 
