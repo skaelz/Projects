@@ -13,13 +13,13 @@ Welcome to this repository showcasing various data projects demonstrating profic
 ### 2. Bandicoot Coffee - SQL & Tableau
 
 - **Key Concepts:** Data Cleaning, SQL Analysis, Tableau Visualization, Reporting.
-- **Objective:** Transform unclean data into a clean dataset using SQL, perform comprehensive SQL analysis to derive actionable insights for Bandicoot Coffee. Create visualizations and reporting using Tableau.
-- **Components:** Involves SQL cleaning, analysis covering multiple SQL concepts, and visualization with Tableau for insghts. 
+- **Objective:** Transform unclean data into a clean dataset using SQL, perform comprehensive SQL analysis for actionable insights for Bandicoot Coffee. Create visualizations and reporting using Tableau.
+- **Components:** Involves SQL cleaning, analysis covering multiple SQL concepts, and visualization with Tableau for insights. 
 ### 3. Bike Sales Analysis - Excel Focus
 
 - **Key Concepts:** VLOOKUP, PIVOT tables, Nested Queries (Excel Functions).
 - **Objective:** Conduct a thorough analysis of bike sales data using Excel functions. Create reports and summaries showcasing proficiency in Excel.
-- **Components:** Utilizes VLOOKUP for data matching, PIVOT tables for summarization, and nested queries (Excel functions) for specific data manipulations or calculations.
+- **Components:** Utilizes VLOOKUP for data matching, PIVOT tables for summarization, and nested queries, etc. for specific data manipulations or calculations.
 
 ### 4. COVID-19 Data Visualization - Tableau
 
