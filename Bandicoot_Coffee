@@ -313,11 +313,13 @@ order by model asc
 --Warranty and Support:
 
 --Analyze warranty usage - how many customers utilized warranties for each machine model?
+
 select distinct model, 
   count(payment_date), 
   count(return_reason)
 from espresso
 group by model
+
 -- Looking at payment date and return reason, it seems that our product needs drastic changes.
 -- Every single machine was returned that was purchased, netting our profit to zero. We either need better machines, or a stricter return policy. 
--- The data collection could be off, as well. More investigation needed.  
+-- The data collection could be off as well. More investigation needed.  
